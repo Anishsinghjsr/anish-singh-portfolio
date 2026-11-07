@@ -1,0 +1,1273 @@
+
+@import "tailwindcss";
+
+/* =========================================================
+   1. PREMIUM THEME VARIABLES
+========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --bg-main: #050505;
+  --bg-card: #0d0d0d;
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --accent: #a78bfa;
+  --accent-strong: #8b5cf6;
+
+  --page-padding: clamp(16px, 5vw, 80px);
+  --section-space: clamp(64px, 8vw, 112px);
+  --card-padding: clamp(16px, 2.5vw, 32px);
+
+  --radius-card: 24px;
+  --radius-small: 14px;
+
+  --transition: 0.3s ease;
+}
+
+/* =========================================================
+   2. LIGHT THEME
+========================================================= */
+
+html.light {
+  color-scheme: light;
+
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #2f241e;
+  --text-muted: #5f5148;
+  --border-color: rgba(80, 55, 40, 0.15);
+
+  --accent: #8b5cf6;
+  --accent-strong: #7c3aed;
+}
+
+/* =========================================================
+   3. GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  margin: 0;
+
+  overflow-x: clip;
+
+  background: var(--bg-main);
+  color: var(--text-main);
+
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* =========================================================
+   4. FLUID TYPOGRAPHY
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+/* =========================================================
+   5. LIGHT THEME BACKGROUNDS
+========================================================= */
+
+html.light body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+html.light .bg-\[\#050505\] {
+  background-color: var(--bg-main) !important;
+}
+
+html.light .bg-\[\#080808\] {
+  background-color: var(--bg-main) !important;
+}
+
+html.light .bg-\[\#0d0d0d\] {
+  background-color: var(--bg-card) !important;
+}
+
+/* =========================================================
+   6. LIGHT THEME TEXT
+========================================================= */
+
+html.light .text-white {
+  color: #2f241e !important;
+}
+
+html.light .text-gray-300 {
+  color: #40352f !important;
+}
+
+html.light .text-gray-400 {
+  color: #5f5148 !important;
+}
+
+html.light .text-gray-500 {
+  color: #6b5d54 !important;
+}
+
+html.light .text-gray-600 {
+  color: #75665d !important;
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #2f241e;
+}
+
+html.light p {
+  color: #4f433b;
+}
+
+/* =========================================================
+   7. PURPLE ACCENTS
+========================================================= */
+
+html.light .text-purple-300 {
+  color: #8b5cf6 !important;
+}
+
+html.light .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+html.light .text-purple-500 {
+  color: #7c3aed !important;
+}
+
+html.light .text-purple-600 {
+  color: #6d28d9 !important;
+}
+
+/* =========================================================
+   8. LIGHT THEME BORDERS
+========================================================= */
+
+html.light .border-white\/10 {
+  border-color: var(--border-color) !important;
+}
+
+html.light .border-white\/20 {
+  border-color: rgba(80, 55, 40, 0.2) !important;
+}
+
+html.light .border-white\/5 {
+  border-color: rgba(80, 55, 40, 0.08) !important;
+}
+
+html.light .border-purple-500\/30 {
+  border-color: rgba(124, 58, 237, 0.3) !important;
+}
+
+html.light .border-purple-500\/50 {
+  border-color: rgba(124, 58, 237, 0.5) !important;
+}
+
+/* =========================================================
+   9. LIGHT TRANSPARENT BACKGROUNDS
+========================================================= */
+
+html.light .bg-white\/5 {
+  background-color: rgba(80, 55, 40, 0.05) !important;
+}
+
+html.light .bg-white\/10 {
+  background-color: rgba(80, 55, 40, 0.08) !important;
+}
+
+html.light .bg-white\/20 {
+  background-color: rgba(80, 55, 40, 0.12) !important;
+}
+
+html.light .bg-white\/\[0\.03\] {
+  background-color: rgba(80, 55, 40, 0.03) !important;
+}
+
+/* =========================================================
+   10. NAVBAR
+========================================================= */
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(80, 55, 40, 0.12) !important;
+}
+
+html.light header .text-gray-300 {
+  color: #40352f !important;
+}
+
+html.light header .text-white {
+  color: #2f241e !important;
+}
+
+html.light header a:hover {
+  color: #7c3aed !important;
+}
+
+/* =========================================================
+   11. LINKS & BUTTONS
+========================================================= */
+
+html.light a.text-gray-300:hover,
+html.light a.text-gray-400:hover {
+  color: #7c3aed !important;
+}
+
+html.light button.text-white {
+  color: #2f241e !important;
+}
+
+html.light button:hover {
+  color: #7c3aed;
+}
+
+/* =========================================================
+   12. INPUTS
+========================================================= */
+
+html.light input,
+html.light textarea,
+html.light select {
+  color: #2f241e !important;
+  background-color: rgba(80, 55, 40, 0.03) !important;
+  border-color: rgba(80, 55, 40, 0.15);
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #8a7b71 !important;
+}
+
+/* =========================================================
+   13. SHADOWS
+========================================================= */
+
+html.light .shadow-xl {
+  box-shadow: 0 10px 25px rgba(50, 35, 25, 0.08) !important;
+}
+
+html.light .shadow-lg {
+  box-shadow: 0 8px 20px rgba(50, 35, 25, 0.07) !important;
+}
+
+/* =========================================================
+   14. HOVER BACKGROUNDS
+========================================================= */
+
+html.light .hover\:bg-white\/5:hover {
+  background-color: rgba(80, 55, 40, 0.05) !important;
+}
+
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgba(80, 55, 40, 0.08) !important;
+}
+
+/* =========================================================
+   15. THEME TRANSITIONS
+========================================================= */
+
+body,
+section,
+header,
+nav,
+div,
+article,
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+/* =========================================================
+   16. RESPONSIVE CONTAINERS
+========================================================= */
+
+.max-w-7xl,
+.max-w-6xl,
+.max-w-5xl,
+.max-w-4xl,
+.max-w-3xl {
+  width: 100%;
+  min-width: 0;
+}
+
+.flex-1,
+.min-w-0,
+.grid {
+  min-width: 0;
+}
+
+/* =========================================================
+   17. EXTRA SMALL PHONES
+   320px - 359px
+   iPhone SE / Compact Android
+========================================================= */
+
+@media (max-width: 359px) {
+
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 10vw, 2.25rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.04em;
+  }
+
+  h2 {
+    font-size: 1.7rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+  }
+
+  p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .text-7xl {
+    font-size: 2.2rem !important;
+  }
+
+  .text-6xl {
+    font-size: 2rem !important;
+  }
+
+  .text-5xl {
+    font-size: 1.85rem !important;
+  }
+
+  .text-4xl {
+    font-size: 1.65rem !important;
+  }
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl {
+    max-width: 100%;
+  }
+
+  .p-8 {
+    padding: 15px !important;
+  }
+
+  .p-7 {
+    padding: 14px !important;
+  }
+
+  .p-6 {
+    padding: 13px !important;
+  }
+
+  .gap-8 {
+    gap: 16px !important;
+  }
+
+  .gap-7 {
+    gap: 14px !important;
+  }
+
+  .gap-6 {
+    gap: 12px !important;
+  }
+
+  .py-28 {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+
+  .py-24 {
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
+  }
+
+  .py-20 {
+    padding-top: 42px !important;
+    padding-bottom: 42px !important;
+  }
+
+  button,
+  a {
+    max-width: 100%;
+  }
+
+  .w-screen {
+    width: 100% !important;
+  }
+}
+
+/* =========================================================
+   18. SMALL PHONES
+   360px - 389px
+   iPhone 12 mini / Android
+========================================================= */
+
+@media (min-width: 360px) and (max-width: 389px) {
+
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h1 {
+    font-size: 2.35rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-size: 1.9rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .text-7xl {
+    font-size: 2.4rem !important;
+  }
+
+  .text-6xl {
+    font-size: 2.2rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2rem !important;
+  }
+
+  .text-4xl {
+    font-size: 1.8rem !important;
+  }
+
+  .p-8 {
+    padding: 17px !important;
+  }
+
+  .p-7 {
+    padding: 16px !important;
+  }
+
+  .p-6 {
+    padding: 15px !important;
+  }
+
+  .gap-8 {
+    gap: 18px !important;
+  }
+
+  .gap-7 {
+    gap: 16px !important;
+  }
+
+  .gap-6 {
+    gap: 14px !important;
+  }
+
+  .py-28 {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  .py-24 {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .py-20 {
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
+  }
+}
+
+/* =========================================================
+   19. STANDARD PHONES
+   390px - 429px
+   iPhone 14 / 15 / 16
+========================================================= */
+
+@media (min-width: 390px) and (max-width: 429px) {
+
+  section {
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+  }
+
+  h1 {
+    font-size: 2.55rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-size: 2.05rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.35rem !important;
+  }
+
+  p {
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+
+  .text-7xl {
+    font-size: 2.65rem !important;
+  }
+
+  .text-6xl {
+    font-size: 2.45rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2.2rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+
+  .p-8 {
+    padding: 18px !important;
+  }
+
+  .p-7 {
+    padding: 17px !important;
+  }
+
+  .p-6 {
+    padding: 16px !important;
+  }
+}
+
+/* =========================================================
+   20. LARGE PHONES
+   430px - 639px
+   iPhone Pro Max / Large Android
+========================================================= */
+
+@media (min-width: 430px) and (max-width: 639px) {
+
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 8vw, 3.2rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.4rem !important;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .text-7xl {
+    font-size: 3rem !important;
+  }
+
+  .text-6xl {
+    font-size: 2.75rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2.4rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2.15rem !important;
+  }
+
+  .p-8 {
+    padding: 20px !important;
+  }
+
+  .p-7 {
+    padding: 19px !important;
+  }
+
+  .p-6 {
+    padding: 17px !important;
+  }
+}
+
+/* =========================================================
+   21. ALL MOBILE DEVICES
+   320px - 767px
+========================================================= */
+
+@media (max-width: 767px) {
+
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  section {
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  /* Section spacing */
+
+  .py-28 {
+    padding-top: clamp(52px, 12vw, 68px) !important;
+    padding-bottom: clamp(52px, 12vw, 68px) !important;
+  }
+
+  .py-24 {
+    padding-top: clamp(48px, 10vw, 60px) !important;
+    padding-bottom: clamp(48px, 10vw, 60px) !important;
+  }
+
+  .py-20 {
+    padding-top: clamp(44px, 9vw, 56px) !important;
+    padding-bottom: clamp(44px, 9vw, 56px) !important;
+  }
+
+  /* Containers */
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl,
+  .max-w-4xl,
+  .max-w-3xl {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Card radius */
+
+  [class*="rounded-[24px]"],
+  [class*="rounded-[25px]"] {
+    border-radius: 20px;
+  }
+
+  /* Card padding */
+
+  .p-8 {
+    padding: clamp(16px, 4vw, 20px) !important;
+  }
+
+  .p-7 {
+    padding: clamp(15px, 3.8vw, 19px) !important;
+  }
+
+  .p-6 {
+    padding: clamp(14px, 3.5vw, 17px) !important;
+  }
+
+  /* Grid safety */
+
+  .grid {
+    min-width: 0;
+  }
+
+  /* Flex safety */
+
+  .flex-1,
+  .min-w-0 {
+    min-width: 0;
+  }
+
+  /* Images */
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Background glows */
+
+  .blur-\[120px\],
+  .blur-\[130px\],
+  .blur-\[150px\] {
+    opacity: 0.55;
+  }
+
+  /* Tables */
+
+  table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Code blocks */
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Buttons */
+
+  button,
+  a {
+    max-width: 100%;
+  }
+
+  /* Long words */
+
+  p,
+  span,
+  a {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   22. MOBILE NAVBAR
+========================================================= */
+
+@media (max-width: 767px) {
+
+  header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header nav {
+    width: 100%;
+    min-height: 62px;
+  }
+
+  header > div {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header a,
+  header button {
+    flex-shrink: 0;
+  }
+
+  header h1,
+  header h2,
+  header h3,
+  header p,
+  header span {
+    overflow-wrap: normal;
+  }
+
+  header {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+}
+
+/* =========================================================
+   23. MOBILE EDUCATION SECTION
+========================================================= */
+
+@media (min-width: 360px) and (max-width: 767px) {
+
+  #education article {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #education article > div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #education img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  #education .flex-1 {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #education .grid {
+    width: 100%;
+  }
+
+  #education span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* =========================================================
+   24. SMALL TABLETS
+   640px - 767px
+========================================================= */
+
+@media (min-width: 640px) and (max-width: 767px) {
+
+  section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl {
+    max-width: 94%;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .text-7xl {
+    font-size: 3.8rem !important;
+  }
+
+  .text-6xl {
+    font-size: 3.3rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2.8rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2.4rem !important;
+  }
+}
+
+/* =========================================================
+   25. TABLETS
+   768px - 899px
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 899px) {
+
+  section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl {
+    max-width: 94%;
+  }
+
+  .text-7xl {
+    font-size: 4.1rem !important;
+  }
+
+  .text-6xl {
+    font-size: 3.6rem !important;
+  }
+
+  .text-5xl {
+    font-size: 3rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* =========================================================
+   26. LARGE TABLETS
+   900px - 1023px
+========================================================= */
+
+@media (min-width: 900px) and (max-width: 1023px) {
+
+  section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl {
+    max-width: 92%;
+  }
+
+  .text-7xl {
+    font-size: 4.5rem !important;
+  }
+
+  .text-6xl {
+    font-size: 3.9rem !important;
+  }
+
+  .text-5xl {
+    font-size: 3.3rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2.7rem !important;
+  }
+}
+
+/* =========================================================
+   27. SMALL LAPTOPS
+   1024px - 1279px
+========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  section {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .max-w-7xl,
+  .max-w-6xl,
+  .max-w-5xl {
+    max-width: 94%;
+  }
+
+  .text-7xl {
+    font-size: 4.8rem !important;
+  }
+
+  .text-6xl {
+    font-size: 4.2rem !important;
+  }
+
+  .text-5xl {
+    font-size: 3.4rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2.8rem !important;
+  }
+}
+
+/* =========================================================
+   28. DESKTOP
+   1280px - 1535px
+========================================================= */
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+
+  section {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .max-w-7xl {
+    max-width: 80rem;
+  }
+
+  .max-w-6xl {
+    max-width: 72rem;
+  }
+
+  .max-w-5xl {
+    max-width: 64rem;
+  }
+}
+
+/* =========================================================
+   29. LARGE DESKTOP
+   1536px - 1919px
+========================================================= */
+
+@media (min-width: 1536px) {
+
+  section {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .max-w-7xl {
+    max-width: 84rem;
+  }
+
+  .max-w-6xl {
+    max-width: 76rem;
+  }
+
+  .max-w-5xl {
+    max-width: 68rem;
+  }
+}
+
+/* =========================================================
+   30. ULTRA WIDE SCREENS
+   1920px+
+========================================================= */
+
+@media (min-width: 1920px) {
+
+  section {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+
+  .max-w-7xl {
+    max-width: 90rem;
+  }
+
+  .max-w-6xl {
+    max-width: 82rem;
+  }
+
+  .max-w-5xl {
+    max-width: 72rem;
+  }
+
+  body {
+    font-size: 17px;
+  }
+}
+
+/* =========================================================
+   31. FORM RESPONSIVENESS
+========================================================= */
+
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  form {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   32. LANDSCAPE PHONES
+========================================================= */
+
+@media (max-width: 767px) and (orientation: landscape) {
+
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  section {
+    scroll-margin-top: 64px;
+  }
+
+  .min-h-screen {
+    min-height: 100svh;
+  }
+}
+
+/* =========================================================
+   33. SHORT HEIGHT SCREENS
+========================================================= */
+
+@media (max-height: 500px) and (max-width: 900px) {
+
+  .min-h-screen {
+    min-height: auto;
+  }
+
+  section {
+    scroll-margin-top: 65px;
+  }
+}
+
+/* =========================================================
+   34. SAFE AREA SUPPORT
+   iPhone Notch / Dynamic Island
+========================================================= */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  footer {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
+/* =========================================================
+   35. TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+  button:hover,
+  a:hover {
+    transform: none;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* =========================================================
+   36. ACCESSIBILITY
+========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
