@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -24,8 +25,11 @@ function Contact() {
     setSending(true);
 
     try {
+      const API_URL =
+        import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
       const response = await fetch(
-        "https://kumkum-portfolio.onrender.com/api/contact/send/",
+        `${API_URL}/api/contact/send/`,
         {
           method: "POST",
           headers: {
@@ -62,9 +66,7 @@ function Contact() {
       id="contact"
       className="relative overflow-hidden bg-[var(--bg-main)] px-6 py-24 text-[var(--text-main)]"
     >
-      {/* =====================================================
-          BACKGROUND GLOWS
-      ===================================================== */}
+      {/* BACKGROUND GLOWS */}
 
       <div className="pointer-events-none absolute left-1/2 top-10 h-80 w-80 -translate-x-1/2 rounded-full bg-purple-600/8 blur-[130px]" />
 
@@ -72,9 +74,7 @@ function Contact() {
 
       <div className="pointer-events-none absolute -right-40 top-1/2 h-80 w-80 rounded-full bg-purple-600/5 blur-[120px]" />
 
-      {/* =====================================================
-          GRID BACKGROUND
-      ===================================================== */}
+      {/* GRID BACKGROUND */}
 
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.025]"
@@ -86,9 +86,8 @@ function Contact() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        {/* =====================================================
-            SECTION HEADER
-        ===================================================== */}
+
+        {/* SECTION HEADER */}
 
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -120,21 +119,16 @@ function Contact() {
 
           <div className="mx-auto mt-7 flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-purple-500/40" />
-
             <div className="h-1.5 w-1.5 rounded-full bg-purple-400/70" />
-
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-purple-500/40" />
           </div>
         </motion.div>
 
-        {/* =====================================================
-            MAIN GRID
-        ===================================================== */}
+        {/* MAIN GRID */}
 
         <div className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* ===================================================
-              LEFT CONTACT CARD
-          =================================================== */}
+
+          {/* LEFT CONTACT CARD */}
 
           <motion.div
             initial={{ opacity: 0, x: -35 }}
@@ -208,6 +202,7 @@ function Contact() {
                 </p>
 
                 {/* EMAIL */}
+
                 <motion.a
                   href="mailto:anishsinghjsr9546@gmail.com"
                   whileHover={{ x: 4 }}
@@ -234,6 +229,7 @@ function Contact() {
                 </motion.a>
 
                 {/* LINKEDIN */}
+
                 <motion.a
                   href="https://www.linkedin.com/in/anish-singh-a29390447/"
                   target="_blank"
@@ -262,6 +258,7 @@ function Contact() {
                 </motion.a>
 
                 {/* AVAILABILITY */}
+
                 <div className="mt-7 flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
@@ -277,9 +274,7 @@ function Contact() {
             </div>
           </motion.div>
 
-          {/* ===================================================
-              RIGHT CONTACT FORM
-          =================================================== */}
+          {/* RIGHT CONTACT FORM */}
 
           <motion.form
             initial={{ opacity: 0, x: 35 }}
@@ -342,7 +337,9 @@ function Contact() {
               </div>
 
               <div className="mt-7 space-y-5">
+
                 {/* NAME */}
+
                 <div>
                   <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
                     Your Name
@@ -360,6 +357,7 @@ function Contact() {
                 </div>
 
                 {/* EMAIL */}
+
                 <div>
                   <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
                     Your Email
@@ -377,6 +375,7 @@ function Contact() {
                 </div>
 
                 {/* SUBJECT */}
+
                 <div>
                   <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
                     Subject
@@ -394,6 +393,7 @@ function Contact() {
                 </div>
 
                 {/* MESSAGE */}
+
                 <div>
                   <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
                     Message
@@ -411,6 +411,7 @@ function Contact() {
                 </div>
 
                 {/* SEND BUTTON */}
+
                 <motion.button
                   type="submit"
                   disabled={sending}
@@ -457,9 +458,7 @@ function Contact() {
           </motion.form>
         </div>
 
-        {/* =====================================================
-            BOTTOM NOTE
-        ===================================================== */}
+        {/* BOTTOM NOTE */}
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}

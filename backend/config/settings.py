@@ -40,7 +40,6 @@ RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "kumkum-portfolio.onrender.com",
 ]
 
 if RENDER_EXTERNAL_HOSTNAME:
@@ -208,12 +207,12 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # =========================================================
 
 CORS_ALLOWED_ORIGINS = [
-    # Local development
     "http://localhost:5173",
-
-    # Production Netlify frontend
-    "https://kumkumportflio.netlify.app",
 ]
 
-# Contact API does not use cookies/session credentials
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
+if FRONTEND_URL:
+    CORS_ALLOWED_ORIGINS.append(FRONTEND_URL)
+
 CORS_ALLOW_CREDENTIALS = False
