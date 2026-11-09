@@ -977,7 +977,7 @@ function Navbar() {
                   text-[var(--text-main)]
                 "
               >
-                K
+                A
               </span>
 
               <span
@@ -994,7 +994,7 @@ function Navbar() {
                   text-transparent
                 "
               >
-                K
+                S
               </span>
             </div>
 

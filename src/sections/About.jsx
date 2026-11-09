@@ -42,7 +42,7 @@ const stats = [
     label: "Projects",
   },
   {
-    value: "4+",
+    value: "1+",
     label: "Internships",
   },
   {
